@@ -7,15 +7,16 @@ buildscript {
     }
 }
 
+apply plugin: 'groovy'
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'war'
 apply plugin: 'idea'
 apply plugin: 'spring-boot'
 
-jar {
-    baseName = 'yokohama-groovy-library-system'
-    version =  '0.1.0'
-}
+//jar {
+//    baseName = 'yokohama-groovy-library-system'
+//    version =  '0.1.0'
+//}
 
 repositories {
     mavenCentral()
@@ -25,12 +26,13 @@ sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 dependencies {
+    compile 'org.codehaus.groovy:groovy-all:2.4.3'
     compile("org.springframework.boot:spring-boot-starter-parent:1.1.8.RELEASE")
     // tag::jetty[]
-//    compile("org.springframework.boot:spring-boot-starter-web") {
-//        exclude module: "spring-boot-starter-tomcat"
-//    }
-//    compile("org.springframework.boot:spring-boot-starter-jetty")
+    compile("org.springframework.boot:spring-boot-starter-web") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile("org.springframework.boot:spring-boot-starter-jetty")
     compile("org.springframework.boot:spring-boot-starter-jdbc")
     // end::jetty[]
     // tag::actuator[]

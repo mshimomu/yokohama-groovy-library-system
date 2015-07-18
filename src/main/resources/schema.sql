@@ -1,13 +1,10 @@
-CREATE TABLE customers(id INT PRIMARY KEY AUTO_INCREMENT, first_name VARCHAR(30), last_name VARCHAR(30));
-
-CREATE TABLE Users (
+CREATE TABLE IF NOT EXISTS Users (
     user_id INT  PRIMARY KEY AUTO_INCREMENT,
     user_name VARCHAR(30),
-    user_address VARCHAR(30),
-
+    user_address VARCHAR(30)
 );
 
-CREATE TABLE Books_Out_On_Loan (
+CREATE TABLE IF NOT EXISTS Books_Out_On_Loan (
     book_borrowing_id INT  PRIMARY KEY AUTO_INCREMENT,
     date_issued DATE,
     date_due_for_return DATE,
@@ -16,7 +13,7 @@ CREATE TABLE Books_Out_On_Loan (
     isbn VARCHAR(30)
 );
 
-CREATE TABLE Books (
+CREATE TABLE IF NOT EXISTS Books (
     isbn VARCHAR(30),
     book_title VARCHAR(30),
     date_of_publication DATE,
@@ -24,13 +21,13 @@ CREATE TABLE Books (
     category_id INT
 );
 
-CREATE TABLE Author (
+CREATE TABLE IF NOT EXISTS Author (
     author_id INT  PRIMARY KEY AUTO_INCREMENT,
     author_firstname VARCHAR(30),
     author_surname VARCHAR(30)
 );
 
-CREATE TABLE Categories (
+CREATE TABLE IF NOT EXISTS Categories (
     category_id INT PRIMARY KEY AUTO_INCREMENT,
     category_name VARCHAR(30)
 )

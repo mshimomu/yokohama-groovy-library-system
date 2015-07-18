@@ -1,9 +1,3 @@
-INSERT INTO customers(first_name, last_name) VALUES('Nobita', 'Nobi');
-INSERT INTO customers(first_name, last_name) VALUES('Takeshi', 'Goda');
-INSERT INTO customers(first_name, last_name) VALUES('Suneo', 'Honekawa');
-INSERT INTO customers(first_name, last_name) VALUES('Shizuka', 'Minamoto');
-
-
 INSERT INTO Users(user_name, user_address) VALUES('Nobita Nobi', 'Yokohama');
 INSERT INTO Users(user_name, user_address) VALUES('Takeshi Goda', 'Tokyo');
 INSERT INTO Users(user_name, user_address) VALUES('Suneo Honekawa', 'Saitama');
