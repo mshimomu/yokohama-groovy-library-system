@@ -16,29 +16,11 @@ import java.sql.SQLException;
 
 @ComponentScan
 @EnableAutoConfiguration
-public class App implements CommandLineRunner{
-    @Autowired
-    NamedParameterJdbcTemplate jdbcTemplate;
-
+public class App {
 
     public static void main( String[] args ) {
         SpringApplication.run(App.class, args);
     }
-
-    @Override
-    public void run(String... strings) throws Exception {
-
-        String sql = "SELECT user_id, user_name, user_address FROM Users WHERE user_id = :user_id;";
-        SqlParameterSource param = new MapSqlParameterSource()
-                .addValue("user_id", 2);
-        User result = jdbcTemplate.queryForObject(sql, param, new RowMapper<User>() {
-            @Override
-            User mapRow(ResultSet resultSet, int rowNum) throws SQLException {
-                return new User ((Integer)resultSet.getInt("user_id"),
-                        resultSet.getString("user_name"),
-                        resultSet.getString("user_address"));
-            }
-        })
 
 // エラー出る
 //        String sql2 = "SELECT b.user_name, c.book_title FROM Books_Out_On_Loan a " +
@@ -49,10 +31,6 @@ public class App implements CommandLineRunner{
 //                .addValue("user_id", 1);
 //        String result2 = jdbcTemplate.queryForObject(sql2, param2,
 //                (resultSet, rowNum) -> resultSet.getString("user_name") + resultSet.getString("book_title"));
-
-
-
-        println "result = ${result.userName} ${result.userAddress}"
 //        System.out.println("result2 = " + result2);
-    }
+
 }
