@@ -19,4 +19,8 @@ class UserService {
     def List<User> findAll() {
         return userRepository.findAll()
     }
+
+    def User create(User user) {
+        return userRepository.save(user)
+    }
 }

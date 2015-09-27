@@ -1,3 +1,4 @@
+DELETE FROM Users;
 INSERT INTO Users(user_name, user_address) VALUES('Nobita Nobi', 'Yokohama');
 INSERT INTO Users(user_name, user_address) VALUES('Takeshi Goda', 'Tokyo');
 INSERT INTO Users(user_name, user_address) VALUES('Suneo Honekawa', 'Saitama');

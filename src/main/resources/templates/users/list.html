@@ -1,10 +1,28 @@
 <!DOCTYPE html>
-<html xmls:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head lang="en">
     <meta charset="UTF-8" />
     <title></title>
 </head>
 <body>
+<div>
+    <!-- TODO クラス名はUserFormだが、ここはuserFormになる？ -->
+    <form th:action="@{/users/create}" th:object="${userForm}" method="post">
+        <dl>
+            <dt><label for="userName">名前</label></dt>
+            <dd>
+                <input type="text" id="userName" name="userName" th:field="*{userName}" th:errorclass="error-input" value="yamada"/>
+                <span th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">error</span>
+            </dd>
+            <dt><label for="userAddress">住所</label></dt>
+            <dd>
+                <input type="userAddress" id="userAddress" name="userAddress" th:field="*{userAddress}" />
+                <span th:if="${#fields.hasErrors('userAddress')}" th:errors="*{userAddress}">error</span>
+            </dd>
+        </dl>
+        <input type="submit" value="利用者登録" />
+    </form>
+</div>
 <table>
     <tr th:each="user : ${users}">
         <td th:text="${user.userId}">1</td>
