@@ -41,7 +41,14 @@ class UserController {
         }
 
         def user = new User()
-        BeanUtils.copyProperties(form, user)
+
+        // TODO UserRepository#save でuserIdを取ろうとしてエラーになる
+        // UserFormにはuserIdがない、UserにはuserIdがあるのにcopyPropertiesをやっているから？
+        // org.springframework.web.util.NestedServletException: Request processing failed; nested exception is groovy.lang.MissingPropertyException: No such property: userId for class: com.example.domain.User Possible solutions: userId
+//        BeanUtils.copyProperties(form, user)
+
+        user.userName = form.userName
+        user.userAddress = form.userAddress
         userService.create(user)
         return "redirect:/users"
     }

@@ -65,13 +65,10 @@ SELECT user_id, user_name, user_address FROM Users WHERE user_id = : user_id
     def User save(User user) {
         SqlParameterSource param = new BeanPropertySqlParameterSource(user)
 
-        // TODO userIdでエラーになる
-        // org.springframework.web.util.NestedServletException: Request processing failed; nested exception is groovy.lang.MissingPropertyException: No such property: userId for class: com.example.domain.User Possible solutions: userId
-        // 結局リダイレクトされるから一覧画面にはきちんと表示される
-//        if(!user.userId) {
+        if(!user.userId) {
             def key = insert.executeAndReturnKey(param)
-//            user.userId = key.intValue()
-//        }
+            user.userId = key.intValue()
+        }
         return user
     }
 }
