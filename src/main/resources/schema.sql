@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS Books_Out_On_Loan (
 );
 
 CREATE TABLE IF NOT EXISTS Books (
-    isbn VARCHAR(30),
+    isbn VARCHAR(13),
     book_title VARCHAR(30),
     date_of_publication DATE,
     author_id INT,

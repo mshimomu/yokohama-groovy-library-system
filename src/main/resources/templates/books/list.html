@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head lang="en">
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+<table>
+    <th>
+        <td>ISBN</td>
+        <td>タイトル</td>
+        <td>出版日</td>
+        <td>著者ID</td>
+        <td>カテゴリID</td>
+    </th>
+    <tr th:each="book : ${books}">
+        <td th:text="${book.isbn}">1234567890</td>
+        <td th:text="${book.bookTitle}">本のタイトルy</td>
+        <td th:text="${book.dateOfPublication}">2015-01-01</td>
+        <td th:text="${book.authorId}">1</td>
+        <td th:text="${book.categoryId}">1</td>
+    </tr>
+</table>
+</body>
+</html>
